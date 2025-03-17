@@ -1,5 +1,5 @@
-# PCP
-This repository is the code implementation of the paper "PCP: A Prompt-based Cartographic-level Polygonal Vector Extraction Framework for Remote Sensing" submitted to TGRS.
+# PCP: Prompt-based Cartographic-level Polygonal Vector Extraction Framework
+This repository is the code implementation of the paper "PCP: A **P**rompt-based **C**artographic-level **P**olygonal Vector Extraction Framework for Remote Sensing Images" submitted to TGRS.
 
 ## Installation
 Conda virtual environment is recommended for installation. Please choose the appropriate version of torch and torchvision according to your CUDA version.
