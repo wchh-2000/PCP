@@ -1,4 +1,4 @@
-# SAMPolyBuild
+# PCP
 This repository is the code implementation of the paper "PCP: A Prompt-based Cartographic-level Polygonal Vector Extraction Framework for Remote Sensing" submitted to TGRS.
 
 ## Installation
@@ -21,6 +21,7 @@ Then, for prompt training, run 'utils/get_train_mask_prompt.py' to match the gro
 ### LoveDA dataset building land vector
 The original LoveDA dataset can be download from [here](https://github.com/Junjue-Wang/LoveDA).
 We use the validation set for testing because the labels are required for conversion to vector form, whereas the test set labels are unavailable.
+
 Using the SFA-Net to generate the segmentation results, after the steps above, we get the vector annotations in
 [coco format](https://pan.baidu.com/s/19K8LeQ5pCyRc7hbWdJszsQ?pwd=p6r3), place them under 'dataset/loveda', combined with the original LoveDA image folder.
 The 'ann_build.json' contains simplified building area polygons, and the 'ann_small_prompt.json' and 'ann_large_prompt.json' contain the GT polygons and mask prompt of small and large area, respectively.
@@ -37,6 +38,7 @@ Given the segmentation results, first, vectorize the segmentation results to coc
 python utils/vectorize_res.py
 ```
 Then, use trained PCP model to predict the polygons. You need to change the **--task_name** to the corresponding training task name, and the other arguments will be set automatically according to training configuration.
+
 The trained model loveda_small.pth and loveda_large.pth can be downloaded from [here](https://pan.baidu.com/s/1bhPH0jBbUiVgTZfct9tCrw?pwd=drpp), and replace the 'args.checkpoint' in 'test.py' with the path of the downloaded model.
 ```shell
 python test.py --task_name small --ann_file res/seg_small.json
